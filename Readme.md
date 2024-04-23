@@ -1,39 +1,12 @@
 # Weathery
-## Features of the website
-ChatGPT (https://chat.openai.com/c/ba99af54-60ae-404e-a931-02bf28aa3049)
 
-**Main features to learn (Jaan hai website ki)**
-- Animated Icons 🥶
-- Firebase authentication 🥶
-- Firebase Database 🥶
-- Settings (database) 🥶
-- Notifications (optional) 😥
-- Video as Background 🤩
-### 1) Current weather
-- Current temperature
-- Last updated
-- Wind speed and direction
-- Air index
-- Day and date
-- Humidity
-- Pressure
-- UV index
-- Alerts
-### 2) Daily forecast
-- Sunrise/Sunset time
-### 3) Hourly forecast
-### 4) Customizable units in settings
-- In Settings
-### 5) User location detection
-### 6) Outdoor activity recommendation
-- New API use karna padega
-### 7) Saved locations
-- Database
-### 8) Dedicated AQI section
-- Carbon monoxide etc.
-### 9) Moon phase information
-### 10) Accessibility Features
-- Keyboard Navigation
-- Dark mode/Light mode
-### 11) Weather Comparison
-- B/w 2 or more cities. User will input it and ek ek karke API request karke table ke form me difference dikhao
+Weathery is a web-based application that offers detailed weather condition data and activity suggestions tailored to the current weather. It enhances the user experience by providing personalized recommendations for outdoor and indoor activities based on weather conditions such as sunny, cloudy, rainy, snowy, and more.
+
+## Key Features
+
+- **Weather Condition Data**: Provides real-time weather conditions, including information on temperature, precipitation, wind speed, and humidity.
+- **Activity Suggestions**: Offers a list of outdoor and indoor activities suited for the current weather conditions, such as hiking on sunny days, visiting museums on rainy days, or building snowmen during snowy weather.
+- **User-friendly Interface**: A clear and intuitive design that allows users to easily navigate and find information.
+- **Icons and Visuals**: The application uses icons and visuals to represent weather conditions, making it easy for users to quickly understand the forecast.
+
+Weathery aims to help users plan their day more efficiently and make the most of their time outdoors or indoors, depending on the weather.
