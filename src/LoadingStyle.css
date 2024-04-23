@@ -1,0 +1,59 @@
+.slide-left {
+  animation: slideLeft 2s forwards;
+}
+
+.slide-right {
+  animation: slideRight 2s forwards;
+}
+
+.logo {
+  animation: LogoAnimation 2s forwards, slideTopLeft 1.5s forwards;
+  animation-delay: 0s, 2s;
+  top: 50%; /* Center vertically */
+  left: 50%; /* Center horizontally */
+  transform: translate(-50%, -50%);
+  /* transform: translate(-50%, -50%); Center it */
+}
+
+@keyframes slideLeft {
+  from {
+    transform: translateX(0);
+  }
+  to {
+    transform: translateX(-100%);
+  }
+}
+
+@keyframes slideRight {
+  from {
+    transform: translateX(0);
+  }
+  to {
+    transform: translateX(100%);
+  }
+}
+@keyframes LogoAnimation {
+  from {
+    width: 50px;
+  }
+  to {
+    width: 180px;
+  }
+}
+
+@keyframes slideTopLeft {
+  from {
+    top: 50%; /* Center vertically */
+    left: 50%; /* Center horizontally */
+    transform: translate(-50%, -50%);
+  }
+  to {
+    top: 0.75rem; /* Center vertically */
+    left: calc(50% - 90px); /* Center horizontally */
+    transform: translate(0, 0);
+  }
+}
+
+.w-full {
+  transition: width 2s, height 2s; /* Transition for width and height changes */
+}

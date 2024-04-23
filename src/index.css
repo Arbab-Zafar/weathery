@@ -1,0 +1,71 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  h1 {
+    @apply text-4xl;
+    @apply font-bold;
+    @apply poppins-regular;
+  }
+  h2 {
+    @apply text-3xl;
+    @apply font-bold;
+    @apply poppins-regular;
+  }
+  h3 {
+    @apply text-2xl;
+    @apply font-bold;
+    @apply roboto-regular;
+  }
+  h4 {
+    @apply text-xl;
+    @apply font-semibold;
+    @apply roboto-regular;
+  }
+  h5 {
+    @apply text-lg; /*or text-lg */
+    @apply font-semibold;
+  }
+  h6 {
+    @apply text-sm;
+    @apply font-semibold;
+  }
+  body {
+    @apply poppins-regular;
+    @apply text-white;
+  }
+}
+
+.poppins-regular {
+  font-family: "Poppins", sans-serif;
+  font-weight: 400;
+  font-style: normal;
+}
+
+.roboto-regular {
+  font-family: "Roboto", sans-serif;
+  font-weight: 400;
+  font-style: normal;
+}
+
+.gradient-text {
+  background-image: linear-gradient(#eee7d5, #dfbc70);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.open-sans-regular {
+  font-family: "Open Sans", sans-serif;
+  font-optical-sizing: auto;
+  font-weight: 400;
+  font-style: normal;
+  font-variation-settings: "wdth" 100;
+}
+
+.toastBody {
+  font-family: "Atlas Grotesk Web", Arial, Helvetica, sans-serif;
+  color: #c8cacb; /* #10171D */
+  font-size: 0.875rem !important;
+}
