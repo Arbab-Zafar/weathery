@@ -104,6 +104,14 @@ const Login = () => {
 
   return (
     <div className="h-[97vh] w-full">
+      <div
+        className="absolute left-5 cursor-pointer text-gray-400 hover:text-gray-300"
+        onClick={() => navigate("/home")}
+      >
+        <span className="material-symbols-outlined text-4xl">
+          arrow_left_alt
+        </span>
+      </div>
       <img
         src={background}
         alt=""

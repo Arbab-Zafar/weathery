@@ -133,12 +133,21 @@ const Signup = () => {
     } else {
       setConfPasswordValidate(true);
     }
-    return confPassword === password;
+    return true;
   };
+  console.log("pass", password, "confPass", confPassword);
   // if (firebase.user) return navigate("/home");
   return (
     <>
-      <div className="h-[97vh] w-full">
+      <div className="relative w-full overflow-hidden">
+        <div
+          className="absolute left-5 cursor-pointer text-gray-400 hover:text-gray-300"
+          onClick={() => navigate("/home")}
+        >
+          <span className="material-symbols-outlined text-4xl">
+            arrow_left_alt
+          </span>
+        </div>
         <img
           src={background}
           alt=""
@@ -159,10 +168,14 @@ const Signup = () => {
           </h1>
           <div className="absolute -right-5 h-1 w-4/6 bg-[#f5f5dc]"></div>
         </div>
+        <p className="text-center text-sm text-gray-400">
+          Create an account for the best experience, access settings options,
+          and unlock more features!
+        </p>
         <div className="flex h-[85vh] w-full items-start justify-center bg-transparent">
-          <div className="mt-10 flex flex-col items-center justify-center">
+          <div className="mt-6 flex flex-col items-center justify-center">
             <form action="" onSubmit={handleSubmit}>
-              <div className="relative mb-8 flex items-center">
+              <div className="relative mb-6 flex items-center">
                 <span className="material-symbols-outlined absolute left-4 text-lg text-gray-300">
                   mail
                 </span>
@@ -179,7 +192,7 @@ const Signup = () => {
                   // ref={emailRef}
                 />
               </div>
-              <div className="relative mb-8 flex items-center">
+              <div className="relative mb-6 flex items-center">
                 <span className="material-symbols-outlined absolute left-4 text-lg text-gray-300">
                   lock
                 </span>
@@ -196,7 +209,7 @@ const Signup = () => {
                   // ref={passwordRef}
                 />
               </div>
-              <div className="relative mb-8 flex items-center">
+              <div className="relative mb-6 flex items-center">
                 <span className="material-symbols-outlined absolute left-4 text-lg text-gray-300">
                   lock
                 </span>

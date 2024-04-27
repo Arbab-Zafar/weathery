@@ -5,6 +5,7 @@ import Home from "../pages/Home";
 import Signup from "../pages/Signup";
 import Verify from "../pages/Verify";
 import Login from "../pages/Login";
+import Settings from "../pages/Settings";
 // import { useFirebase } from "../context/Firebase";
 
 function App() {
@@ -16,6 +17,7 @@ function App() {
       <Route path="/signup" element={<Signup />} />;
       <Route path="/verify" element={<Verify />} />;
       <Route path="/login" element={<Login />} />;
+      <Route path="/settings" element={<Settings />} />;
     </Routes>
   );
 }

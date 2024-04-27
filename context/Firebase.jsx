@@ -81,6 +81,10 @@ const FirebaseProvider = ({ children }) => {
     return signInWithPopup(auth, googleProvider);
   };
 
+  const signOutUser = () => {
+    return signOut(auth);
+  };
+
   const passwordReset = () => {
     return sendPasswordResetEmail(auth, user.email);
   };
@@ -142,6 +146,7 @@ const FirebaseProvider = ({ children }) => {
         user,
         passwordReset,
         location,
+        signOutUser,
       }}
     >
       {children}
