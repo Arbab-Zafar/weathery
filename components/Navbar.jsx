@@ -21,15 +21,17 @@ const Navbar = (props) => {
       </div>
       <div className="flex w-1/3 items-center justify-end">
         <div className="mr-4 flex items-center">
-          <span className="material-symbols-outlined cursor-pointer px-2 text-2xl text-gray-400 hover:text-gray-300">
+          <span className="material-symbols-outlined cursor-pointer px-1 text-[1.37rem] text-gray-400 hover:text-gray-300">
             person
           </span>
-          {firebase.user && (
+          {firebase.user ? (
             <span className="text-sm text-gray-300">
               {firebase.user.displayName
                 ? firebase.user.displayName
                 : firebase.user.email}
             </span>
+          ) : (
+            <span className="text-sm text-gray-300">Unknown</span>
           )}
         </div>
         <div onClick={() => navigate("/settings")}>

@@ -1,8 +1,10 @@
-import background from "../src/images/dayBg2.jpeg";
-import verifyIllus from "../src/images/verify.png";
 import { useFirebase } from "../context/Firebase";
 import { useNavigate } from "react-router-dom";
 import { useState } from "react";
+
+import background from "../src/images/verify-bg.jpeg";
+import verifyIllus from "../src/images/illustrations/verify.png";
+
 const Verify = () => {
   const firebase = useFirebase();
   const navigate = useNavigate();
@@ -48,7 +50,7 @@ const Verify = () => {
           )}
           {!show && (
             <button
-              className="mb-4 flex w-52 select-none items-center justify-center rounded-3xl border border-gray-500 bg-transparent bg-opacity-100 px-3 py-1 text-sm text-gray-300 shadow-sm shadow-white ring-gray-400 hover:bg-black hover:bg-opacity-50 hover:text-white active:translate-y-1 active:shadow-md active:ring-1 hover:font-semibold"
+              className="mb-4 flex w-52 select-none items-center justify-center rounded-3xl border border-gray-500 bg-transparent bg-opacity-100 px-3 py-1 text-sm text-gray-300 shadow-sm shadow-white ring-gray-400 hover:bg-black hover:bg-opacity-50 hover:font-semibold hover:text-white active:translate-y-1 active:shadow-md active:ring-1"
               onClick={handleVerify}
             >
               <span className="material-symbols-outlined mr-1 text-xl">

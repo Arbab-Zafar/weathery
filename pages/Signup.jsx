@@ -3,8 +3,8 @@ import { useNavigate } from "react-router-dom";
 import { toast } from "react-toastify";
 import { useFirebase } from "../context/Firebase";
 
-import background from "../src/images/day-bg-5.jpeg";
-import signupIllus from "../src/images/signup.png";
+import background from "../src/images/signup-bg.jpeg";
+import signupIllus from "../src/images/illustrations/signup.png";
 
 const emailRegex = /^[\w\.-]+@[a-zA-Z\d\.-]+\.[a-zA-Z]{2,}$/;
 const passwordRegex = /^(?=.*[A-Za-z])(?=.*\d)[A-Za-z\d\S]{6,}$/;

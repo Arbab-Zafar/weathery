@@ -1,6 +1,6 @@
 // import { useState } from 'react'
-import backGroundVideo from "../src/images/dark-bg-1.mp4";
-import illustration1 from "../src/images/illustration1.png";
+import backGroundVideo from "../src/images/home-bg-video.mp4";
+import illustration1 from "../src/images/illustrations/home.png";
 import Navbar from "../components/Navbar";
 import SearchBar from "../components/SearchBar";
 

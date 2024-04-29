@@ -1,9 +1,10 @@
-import signinIllus from "../src/images/login.png";
-import background from "../src/images/dayBg1.jpeg";
 import { useFirebase } from "../context/Firebase";
 import { toast } from "react-toastify";
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
+
+import background from "../src/images/login-bg.jpeg";
+import signinIllus from "../src/images/illustrations/login.png";
 
 const emailRegex = /^[\w\.-]+@[a-zA-Z\d\.-]+\.[a-zA-Z]{2,}$/;
 const passwordRegex = /^(?=.*[A-Za-z])(?=.*\d)[A-Za-z\d\S]{6,}$/;
