@@ -183,7 +183,7 @@ const Signup = () => {
                   type="text"
                   id="email"
                   name="email"
-                  className={`w-96 rounded-3xl border ${emailValidate === false ? "border-red-500" : "border-gray-500"} bg-black bg-opacity-25 py-2.5 pl-11 text-sm text-gray-400 outline-none`}
+                  className={`w-96 rounded-2xl border ${emailValidate === false ? "border-red-500" : "border-gray-500"} roboto-slab-normal bg-black bg-opacity-25 py-2.5 pl-11 text-sm text-gray-400 outline-none`}
                   placeholder="Email"
                   onChange={(e) => setEmail(e.target.value)}
                   value={email}
@@ -200,7 +200,7 @@ const Signup = () => {
                   type="password"
                   id="password"
                   name="password"
-                  className={`w-96 rounded-3xl border ${passwordValidate === false ? "border-red-500" : "border-gray-500"} bg-black bg-opacity-25 py-2.5 pl-11 text-sm text-gray-400 outline-none`}
+                  className={`w-96 rounded-2xl border ${passwordValidate === false ? "border-red-500" : "border-gray-500"} bg-black bg-opacity-25 py-2.5 pl-11 text-sm text-gray-400 outline-none`}
                   placeholder="Password"
                   onChange={(e) => setPassword(e.target.value)}
                   value={password}
@@ -217,7 +217,7 @@ const Signup = () => {
                   type="password"
                   id="confPassword"
                   name="confPassword"
-                  className={`w-96 rounded-3xl border ${confPasswordValidate === false ? "border-red-500" : "border-gray-500"} bg-black bg-opacity-25 py-2.5 pl-11 text-sm text-gray-400 outline-none`}
+                  className={`w-96 rounded-2xl border ${confPasswordValidate === false ? "border-red-500" : "border-gray-500"} bg-black bg-opacity-25 py-2.5 pl-11 text-sm text-gray-400 outline-none`}
                   placeholder="Confirm password"
                   onChange={(e) => setConfPassword(e.target.value)}
                   value={confPassword}
@@ -229,7 +229,7 @@ const Signup = () => {
 
               <button
                 type="submit"
-                className="mb-4 flex w-96 select-none items-center justify-center rounded-3xl border border-gray-500 bg-transparent bg-opacity-100 px-3 py-1 text-sm text-gray-300 shadow-sm shadow-white ring-gray-400 hover:bg-black hover:bg-opacity-50 hover:font-semibold hover:text-white active:translate-y-1 active:shadow-md active:ring-1"
+                className="mb-4 flex w-96 select-none items-center justify-center rounded-2xl border border-gray-500 bg-transparent bg-opacity-100 px-3 py-1 text-sm text-gray-300 shadow-sm shadow-white ring-gray-400 hover:bg-black hover:bg-opacity-50 hover:font-semibold hover:text-white active:translate-y-1 active:shadow-md active:ring-1"
                 // onClick={() => handleSubmit()}
               >
                 <span className="material-symbols-outlined mr-1 text-xl">
@@ -241,7 +241,7 @@ const Signup = () => {
             <span className="mb-4 text-sm text-gray-300">or continue with</span>
             <button
               type="submit"
-              className="mb-4 flex w-96 select-none items-center justify-center rounded-3xl border border-gray-500 bg-transparent bg-opacity-100 px-3 py-2 text-sm text-gray-300 shadow-sm shadow-white ring-gray-400 hover:bg-black hover:bg-opacity-50 hover:font-semibold hover:text-white active:translate-y-1 active:shadow-md active:ring-1"
+              className="mb-4 flex w-96 select-none items-center justify-center rounded-2xl border border-gray-500 bg-transparent bg-opacity-100 px-3 py-2 text-sm text-gray-300 shadow-sm shadow-white ring-gray-400 hover:bg-black hover:bg-opacity-50 hover:font-semibold hover:text-white active:translate-y-1 active:shadow-md active:ring-1"
               onClick={googleSignin}
             >
               <svg
