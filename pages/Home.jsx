@@ -8,7 +8,7 @@ function Home() {
   return (
     <>
       <div className="hero h-[100vh] w-full">
-        <Navbar />
+        <Navbar show={true} />
         <video
           loop
           muted
