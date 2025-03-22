@@ -7,6 +7,7 @@ import Verify from "../pages/Verify";
 import Login from "../pages/Login";
 import Settings from "../pages/Settings";
 import Start from "../pages/Start";
+import CitySelectionPopup from "../pages/CitySelectionPopup";
 // import { useFirebase } from "../context/Firebase";
 
 function App() {
@@ -20,6 +21,7 @@ function App() {
       <Route path="/login" element={<Login />} />;
       <Route path="/settings" element={<Settings />} />;
       <Route path="/start" element={<Start />} />;
+      <Route path="/popup" element={<CitySelectionPopup />} />;
     </Routes>
   );
 }

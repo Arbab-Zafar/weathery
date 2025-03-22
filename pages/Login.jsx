@@ -7,7 +7,6 @@ import background from "../src/images/login-bg.jpeg";
 import signinIllus from "../src/images/illustrations/login.png";
 
 const emailRegex = /^[\w\.-]+@[a-zA-Z\d\.-]+\.[a-zA-Z]{2,}$/;
-const passwordRegex = /^(?=.*[A-Za-z])(?=.*\d)[A-Za-z\d\S]{6,}$/;
 
 const Login = () => {
   const [email, setEmail] = useState("");

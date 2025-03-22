@@ -23,16 +23,24 @@ const Navbar = (props) => {
             <span className="material-symbols-outlined cursor-pointer pr-[0.15rem] text-xl text-gray-400 hover:text-gray-300">
               location_on
             </span>
-            <span className="text-sm text-gray-300">Gaya</span>
+            <span className="text-sm text-gray-300">
+              {firebase.locationName}
+            </span>
           </div>
         )}
         {props.show && (
           <div className="flex items-center gap-1 text-sm text-gray-300">
-            <span className="cursor-pointer hover:font-semibold hover:text-white">
+            <span
+              className={`cursor-pointer hover:text-white ${firebase.unit === "C" ? "font-semibold text-white" : ""}`}
+              onClick={() => firebase.setUnit("C")}
+            >
               °C
             </span>
             <span>/</span>
-            <span className="cursor-pointer hover:font-semibold hover:text-white">
+            <span
+              className={`cursor-pointer hover:text-white ${firebase.unit === "F" ? "font-semibold text-white" : ""}`}
+              onClick={() => firebase.setUnit("F")}
+            >
               °F
             </span>
           </div>

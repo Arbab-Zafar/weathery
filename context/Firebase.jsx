@@ -33,8 +33,10 @@ const googleProvider = new GoogleAuthProvider();
 
 const FirebaseProvider = ({ children }) => {
   const [opened, setOpened] = useState(false);
-  const [location, setLocation] = useState({});
+  const [locationCord, setLocationCord] = useState({});
+  const [locationName, setLocationName] = useState("");
   const [user, setUser] = useState(null);
+  const [unit, setUnit] = useState("C"); // default:Celsius
 
   const navigate = useNavigate();
   let verificationInterval;
@@ -43,10 +45,36 @@ const FirebaseProvider = ({ children }) => {
     if (navigator.geolocation) {
       navigator.geolocation.getCurrentPosition(
         (position) => {
-          setLocation({
+          setLocationCord({
             lat: position.coords.latitude,
             long: position.coords.longitude,
           });
+          fetch(
+            `https://nominatim.openstreetmap.org/reverse?format=json&lat=${position.coords.latitude}&lon=${position.coords.longitude}`,
+          )
+            .then((response) => response.json())
+            .then((data) => {
+              if (data) {
+                setLocationName(data.address.city);
+                console.log(data.address.city);
+              } else {
+                setLocationName("");
+                toast.error("Unable to determine your location!", {
+                  autoClose: 2000,
+                  closeOnClick: true,
+                  draggable: true,
+                  theme: "dark",
+                });
+              }
+            })
+            .catch(() => {
+              toast.error("Unable to determine your location!", {
+                autoClose: 2000,
+                closeOnClick: true,
+                draggable: true,
+                theme: "dark",
+              });
+            });
         },
         (error) => {
           console.error("Error getting user location:", error);
@@ -131,7 +159,8 @@ const FirebaseProvider = ({ children }) => {
     }
   };
 
-  console.log("Location", location);
+  console.log("LocationCord", locationCord);
+  console.log("LocationName", locationName);
   // console.log(opened);
 
   return (
@@ -139,13 +168,17 @@ const FirebaseProvider = ({ children }) => {
       value={{
         opened,
         setOpened,
+        unit,
+        setUnit,
         createUserWithEmail,
         signInWithEmail,
         signInWithGoogle,
         verifyEmail,
         user,
         passwordReset,
-        location,
+        locationCord,
+        locationName,
+        setLocationName,
         signOutUser,
       }}
     >

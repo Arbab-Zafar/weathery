@@ -2,7 +2,6 @@
 import backGroundVideo from "../src/images/home-bg-video.mp4";
 import illustration1 from "../src/images/illustrations/home.png";
 import Navbar from "../components/Navbar";
-import SearchBar from "../components/SearchBar";
 
 function Home() {
   return (
@@ -19,7 +18,6 @@ function Home() {
           <source src={backGroundVideo} type="video/mp4" />
           Your browser does not support the video tag.
         </video>
-        <SearchBar />
         <div className="absolute right-4 -z-50 mt-8">
           <img
             src={illustration1}
