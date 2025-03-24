@@ -9,17 +9,9 @@ const Navbar = (props) => {
 
   return (
     <div className="flex w-full items-center justify-between bg-transparent px-4 py-3 text-white shadow-md shadow-gray-700">
-      <div className="w-1/3"></div>
-      <div className="flex flex-grow justify-center gap-10">
-        <img
-          src={Logo}
-          alt="Logo"
-          width={180}
-          className="cursor-pointer mix-blend-lighten"
-          onClick={() => navigate("/home")}
-        />
+      <div className="flex w-1/3 items-center">
         {props.show && (
-          <div className="flex items-center">
+          <div className="ml-6 mr-5 flex items-center">
             <span className="material-symbols-outlined cursor-pointer pr-[0.15rem] text-xl text-gray-400 hover:text-gray-300">
               location_on
             </span>
@@ -46,7 +38,31 @@ const Navbar = (props) => {
           </div>
         )}
       </div>
-      <div className="flex w-1/3 items-center justify-end">
+      <div className="flex w-1/3 items-center justify-center gap-10">
+        <img
+          src={Logo}
+          alt="Logo"
+          width={180}
+          className="cursor-pointer mix-blend-lighten"
+          onClick={() => navigate("/home")}
+        />
+      </div>
+      <div className="mr-6 flex w-1/3 items-center justify-end">
+        {props.signup && (
+          <div className="mr-4 flex items-center">
+            <div className="group relative inline-flex">
+              <div className="animate-tilt absolute -inset-px rounded-xl bg-gradient-to-r from-white via-[#c7b587] to-gray-500 opacity-70 blur-lg transition-all duration-1000 group-hover:-inset-1 group-hover:opacity-100 group-hover:duration-200"></div>
+              <a
+                href="#"
+                title="Get quote now"
+                className="font-pj relative inline-flex h-[40px] w-[120px] items-center justify-center rounded-xl bg-[#222] text-xs text-white transition-all duration-200 focus:outline-none focus:ring-2 focus:ring-gray-900 focus:ring-offset-2"
+                role="button"
+              >
+                Signup
+              </a>
+            </div>
+          </div>
+        )}
         {props.show && (
           <div className="mr-4 flex items-center">
             <span className="material-symbols-outlined cursor-pointer px-1 text-[1.37rem] text-gray-400 hover:text-gray-300">

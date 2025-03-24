@@ -55,8 +55,8 @@ const FirebaseProvider = ({ children }) => {
             .then((response) => response.json())
             .then((data) => {
               if (data) {
-                setLocationName(data.address.city);
-                console.log(data.address.city);
+                setLocationName(`${data.address.city}, ${data.address.state}, ${data.address.country}`);
+                console.log(data);
               } else {
                 setLocationName("");
                 toast.error("Unable to determine your location!", {
