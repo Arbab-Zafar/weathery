@@ -14,12 +14,12 @@ const Loading = () => {
   useEffect(() => {
     let timeoutId;
     if (firebase.opened) {
-      navigate("/home");
+      navigate("/popup");
     } else if (!firebase.opened) {
       timeoutId = setTimeout(() => {
         firebase.setOpened(true);
-        navigate("/home"); // Navigate to "/home" route after 3.5 seconds
-      }, 3800); // 3.5 seconds delay
+        navigate("/popup"); // Navigate to "/home" route after 3.8 seconds
+      }, 3800); // 3.8 seconds delay
     }
 
     return () => clearTimeout(timeoutId);

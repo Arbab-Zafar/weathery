@@ -35,55 +35,110 @@ const FirebaseProvider = ({ children }) => {
   const [opened, setOpened] = useState(false);
   const [locationCord, setLocationCord] = useState({});
   const [locationName, setLocationName] = useState("");
+  const [locationDenied, setLocationDenied] = useState(true);
+
   const [user, setUser] = useState(null);
   const [unit, setUnit] = useState("C"); // default:Celsius
 
   const navigate = useNavigate();
   let verificationInterval;
 
-  useEffect(() => {
-    if (navigator.geolocation) {
-      navigator.geolocation.getCurrentPosition(
-        (position) => {
-          setLocationCord({
-            lat: position.coords.latitude,
-            long: position.coords.longitude,
-          });
-          fetch(
-            `https://nominatim.openstreetmap.org/reverse?format=json&lat=${position.coords.latitude}&lon=${position.coords.longitude}`,
-          )
-            .then((response) => response.json())
-            .then((data) => {
-              if (data) {
-                setLocationName(`${data.address.city}, ${data.address.state}, ${data.address.country}`);
-                console.log(data);
-              } else {
-                setLocationName("");
-                toast.error("Unable to determine your location!", {
-                  autoClose: 2000,
-                  closeOnClick: true,
-                  draggable: true,
-                  theme: "dark",
-                });
-              }
-            })
-            .catch(() => {
+  const getLocationFunc = () => {
+    if (!navigator.geolocation) {
+      setLocationDenied(true);
+      console.error("Geolocation is not supported by this browser.");
+      toast.error(
+        "Location access unavailable. Please select your city manually!",
+        {
+          autoClose: 2000,
+          closeOnClick: true,
+          draggable: true,
+          theme: "dark",
+        },
+      );
+      return;
+    }
+
+    navigator.geolocation.getCurrentPosition(
+      (position) => {
+        setLocationCord({
+          lat: position.coords.latitude,
+          long: position.coords.longitude,
+        });
+
+        fetch(
+          `https://nominatim.openstreetmap.org/reverse?format=json&lat=${position.coords.latitude}&lon=${position.coords.longitude}`,
+        )
+          .then((response) => response.json())
+          .then((data) => {
+            if (data?.address) {
+              setLocationName(
+                `${data.address.city || data.address.town || data.address.village}, ${data.address.state}, ${data.address.country}`,
+              );
+              setLocationDenied(false);
+              console.log(data);
+            } else {
+              setLocationName("");
+              setLocationDenied(true);
               toast.error("Unable to determine your location!", {
                 autoClose: 2000,
                 closeOnClick: true,
                 draggable: true,
                 theme: "dark",
               });
+            }
+          })
+          .catch(() => {
+            setLocationDenied(true);
+            toast.error("Unable to determine your location!", {
+              autoClose: 2000,
+              closeOnClick: true,
+              draggable: true,
+              theme: "dark",
             });
-        },
-        (error) => {
-          console.error("Error getting user location:", error);
-        },
-      );
-    } else {
-      console.error("Geolocation is not supported by this browser.");
-    }
+          });
+      },
+      (error) => {
+        setLocationDenied(true);
+        console.error("Error getting user location:", error);
 
+        if (error.code === error.PERMISSION_DENIED) {
+          toast.error(
+            "Location permission denied. Enable it in your browser settings.",
+            {
+              autoClose: 2000,
+              closeOnClick: true,
+              draggable: true,
+              theme: "dark",
+            },
+          );
+        } else if (error.code === error.POSITION_UNAVAILABLE) {
+          toast.error("Location unavailable. Try again later.", {
+            autoClose: 2000,
+            closeOnClick: true,
+            draggable: true,
+            theme: "dark",
+          });
+        } else if (error.code === error.TIMEOUT) {
+          toast.error("Location request timed out. Please retry.", {
+            autoClose: 2000,
+            closeOnClick: true,
+            draggable: true,
+            theme: "dark",
+          });
+        } else {
+          toast.error("An unknown error occurred while fetching location.", {
+            autoClose: 2000,
+            closeOnClick: true,
+            draggable: true,
+            theme: "dark",
+          });
+        }
+      },
+    );
+  };
+
+  useEffect(() => {
     onAuthStateChanged(auth, async (user) => {
       if (user) {
         setUser(user);
@@ -176,9 +231,12 @@ const FirebaseProvider = ({ children }) => {
         verifyEmail,
         user,
         passwordReset,
+        getLocationFunc,
         locationCord,
         locationName,
         setLocationName,
+        locationDenied,
+        setLocationDenied,
         signOutUser,
       }}
     >

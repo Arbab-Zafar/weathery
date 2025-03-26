@@ -24,9 +24,18 @@ export default function SearchBar({ setIsDropdownSelected }) {
 
     try {
       const response = await fetch(
-        `https://nominatim.openstreetmap.org/search?city=${input}&format=json&limit=4`,
+        `https://nominatim.openstreetmap.org/search?q=${input}&format=json&limit=4`,
       );
       const data = await response.json();
+      // let suggestionsArray = [];
+      // data.forEach((element) => {
+      //   if (element.type == "administrative") {
+      //     suggestionsArray.push(element);
+      //     console.log(suggestionsArray);
+      //     setSuggestions(suggestionsArray);
+      //   }
+      // });
+      console.log("Search data", data);
       setSuggestions(data);
     } catch (error) {
       console.error("Error fetching city suggestions:", error);
@@ -97,7 +106,7 @@ export default function SearchBar({ setIsDropdownSelected }) {
                 ${index === suggestions.length - 1 ? "rounded-b-xl" : ""}`}
                 onClick={() => {
                   setQuery(city.display_name);
-                  firebase.setLocationName(city.name);
+                  firebase.setLocationName(city.display_name.slice(0, 40));
                   setIsDropdownSelected(true);
                   setSuggestions([]);
                 }}
